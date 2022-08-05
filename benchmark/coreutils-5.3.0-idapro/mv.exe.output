@@ -1,0 +1,48 @@
+0x41f59f	or dword ptr [ecx],0x0
+	Uninitialized content at address 0xfffffd90
+
+0x41a29e	mov ecx,dword ptr [ebx]
+	Uninitialized content at address 0xfffffcdc
+
+0x402028	mov eax,dword ptr [ebp+0x8]
+	Uninitialized content at address 0xfffffda4
+
+0x4024fa	cmp byte ptr [ebp-0xd9],0x0
+	Uninitialized content at address 0xfffffcc3
+
+Error: 0x40c48c	mov edx,dword ptr [ebp+0x0]
+	Null pointer dereference at address 0x0
+
+Error: 0x40c3d1	mov edi,dword ptr [ebp+0x0]
+	Null pointer dereference at address 0x0
+
+Error: 0x40c48c	mov edx,dword ptr [ebp+0x0]
+	Null pointer dereference at address 0x0
+
+Error: 0x40c48c	mov edx,dword ptr [ebp+0x0]
+	Null pointer dereference at address 0x0
+
+Error: 0x40c3d1	mov edi,dword ptr [ebp+0x0]
+	Null pointer dereference at address 0x0
+
+Error: 0x40c48c	mov edx,dword ptr [ebp+0x0]
+	Null pointer dereference at address 0x0
+
+Error: 0x40c48c	mov edx,dword ptr [ebp+0x0]
+	Null pointer dereference at address 0x0
+
+Error: 0x40c3d1	mov edi,dword ptr [ebp+0x0]
+	Null pointer dereference at address 0x0
+
+Error: 0x40c48c	mov edx,dword ptr [ebp+0x0]
+	Null pointer dereference at address 0x0
+
+0x41f59f	or dword ptr [ecx],0x0
+	Uninitialized content at address 0xfffffd90
+
+# of reached instructions: 8235
+# of paths: 2215
+# of (possibly) negative paths: 9
+# of uninitialized content: 5
+# of unresolved indirects: 14
+Execution time (s): 99.79432153701782

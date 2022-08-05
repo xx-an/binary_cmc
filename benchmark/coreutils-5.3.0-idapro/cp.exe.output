@@ -1,0 +1,81 @@
+0x41d73f	or dword ptr [ecx],0x0
+	Uninitialized content at address 0xfffffda0
+
+0x4144d1	mov edi,dword ptr [esp+0x34]
+	Uninitialized content at address 0xfffffd4c
+
+0x4188fe	mov ecx,dword ptr [ebx]
+	Uninitialized content at address 0xfffffcac
+
+0x40b147	mov ebp,dword ptr [esp+0x48]
+	Uninitialized content at address 0xfffffd24
+
+0x40b163	mov edx,dword ptr [esp+0x4c]
+	Uninitialized content at address 0xfffffd28
+
+Error: 0x40b4fc	mov edx,dword ptr [ebp+0x0]
+	Null pointer dereference at address 0x0
+
+Error: 0x40b441	mov edi,dword ptr [ebp+0x0]
+	Null pointer dereference at address 0x0
+
+Error: 0x40b4fc	mov edx,dword ptr [ebp+0x0]
+	Null pointer dereference at address 0x0
+
+Error: 0x40b4fc	mov edx,dword ptr [ebp+0x0]
+	Null pointer dereference at address 0x0
+
+Error: 0x40b441	mov edi,dword ptr [ebp+0x0]
+	Null pointer dereference at address 0x0
+
+Error: 0x40b4fc	mov edx,dword ptr [ebp+0x0]
+	Null pointer dereference at address 0x0
+
+Error: 0x40b4fc	mov edx,dword ptr [ebp+0x0]
+	Null pointer dereference at address 0x0
+
+Error: 0x40b441	mov edi,dword ptr [ebp+0x0]
+	Null pointer dereference at address 0x0
+
+Error: 0x40b4fc	mov edx,dword ptr [ebp+0x0]
+	Null pointer dereference at address 0x0
+
+Error: 0x40b4fc	mov edx,dword ptr [ebp+0x0]
+	Null pointer dereference at address 0x0
+
+Error: 0x40b441	mov edi,dword ptr [ebp+0x0]
+	Null pointer dereference at address 0x0
+
+Error: 0x40b4fc	mov edx,dword ptr [ebp+0x0]
+	Null pointer dereference at address 0x0
+
+Error: 0x40b4fc	mov edx,dword ptr [ebp+0x0]
+	Null pointer dereference at address 0x0
+
+Error: 0x40b441	mov edi,dword ptr [ebp+0x0]
+	Null pointer dereference at address 0x0
+
+Error: 0x40b4fc	mov edx,dword ptr [ebp+0x0]
+	Null pointer dereference at address 0x0
+
+0x40b321	mov edi,dword ptr [esp+0x50]
+	Uninitialized content at address 0xfffffd2c
+
+0x40b321	mov edi,dword ptr [esp+0x50]
+	Uninitialized content at address 0xfffffd2c
+
+0x417552	mov ebx,dword ptr [esp+0x2c]
+	Uninitialized content at address 0xfffff7ec
+
+0x4188fe	mov ecx,dword ptr [ebx]
+	Uninitialized content at address 0xfffffcac
+
+0x41d73f	or dword ptr [ecx],0x0
+	Uninitialized content at address 0xfffffda0
+
+# of reached instructions: 5561
+# of paths: 1473
+# of (possibly) negative paths: 15
+# of uninitialized content: 10
+# of unresolved indirects: 6
+Execution time (s): 62.79587459564209

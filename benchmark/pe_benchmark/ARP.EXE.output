@@ -1,0 +1,129 @@
+0x403ccb	and dword ptr [ebp-0xc],0x0
+	Uninitialized content at address 0xfffffee4
+
+0x403ccf	and dword ptr [ebp-0x8],0x0
+	Uninitialized content at address 0xfffffee8
+
+0x403d35	mov eax,dword ptr [ebp-0x10]
+	Uninitialized content at address 0xfffffee0
+
+0x403d38	xor eax,dword ptr [ebp-0x14]
+	Uninitialized content at address 0xfffffedc
+
+Error: 0x401596	mov eax,dword ptr [ecx]
+	Null pointer dereference at address 0x0
+
+Trace back to ['rcx'] after 0x401596: mov eax,dword ptr [ecx]
+Trace back to ['4294966488'] after 0x401592: mov ecx,dword ptr [esp+0x1c]
+Trace back to ['rdi'] after 0x40152b: push edi
+Trace back to ['rdi'] after 0x40150a: mov edi,edi
+Trace back to ['rbx'] after 0x40376d: mov edi,ebx
+Trace back to [] after 0x40375f: xor ebx,ebx
+
+
+
+Error: 0x401596	mov eax,dword ptr [ecx]
+	Null pointer dereference at address 0x0
+
+Trace back to ['rcx'] after 0x401596: mov eax,dword ptr [ecx]
+Trace back to ['4294966488'] after 0x401592: mov ecx,dword ptr [esp+0x1c]
+Trace back to ['rdi'] after 0x40152b: push edi
+Trace back to ['rdi'] after 0x40150a: mov edi,edi
+Trace back to ['rbx'] after 0x40376d: mov edi,ebx
+Trace back to [] after 0x40375f: xor ebx,ebx
+
+
+
+Error: 0x401596	mov eax,dword ptr [ecx]
+	Null pointer dereference at address 0x0
+
+Trace back to ['rcx'] after 0x401596: mov eax,dword ptr [ecx]
+Trace back to ['4294966488'] after 0x401592: mov ecx,dword ptr [esp+0x1c]
+Trace back to ['rdi'] after 0x40152b: push edi
+Trace back to ['rdi'] after 0x40150a: mov edi,edi
+Trace back to ['rbx'] after 0x40376d: mov edi,ebx
+Trace back to [] after 0x40375f: xor ebx,ebx
+
+
+
+Error: 0x401596	mov eax,dword ptr [ecx]
+	Null pointer dereference at address 0x0
+
+Trace back to ['rcx'] after 0x401596: mov eax,dword ptr [ecx]
+Trace back to ['4294966488'] after 0x401592: mov ecx,dword ptr [esp+0x1c]
+Trace back to ['rdi'] after 0x40152b: push edi
+Trace back to ['rdi'] after 0x40150a: mov edi,edi
+Trace back to ['rbx'] after 0x40376d: mov edi,ebx
+Trace back to [] after 0x40375f: xor ebx,ebx
+
+
+
+Error: 0x401596	mov eax,dword ptr [ecx]
+	Null pointer dereference at address 0x0
+
+Trace back to ['rcx'] after 0x401596: mov eax,dword ptr [ecx]
+Trace back to ['4294966488'] after 0x401592: mov ecx,dword ptr [esp+0x1c]
+Trace back to ['rdi'] after 0x40152b: push edi
+Trace back to ['rdi'] after 0x40150a: mov edi,edi
+Trace back to ['rbx'] after 0x40376d: mov edi,ebx
+Trace back to [] after 0x40375f: xor ebx,ebx
+
+
+
+Error: 0x401596	mov eax,dword ptr [ecx]
+	Null pointer dereference at address 0x0
+
+Trace back to ['rcx'] after 0x401596: mov eax,dword ptr [ecx]
+Trace back to ['4294966488'] after 0x401592: mov ecx,dword ptr [esp+0x1c]
+Trace back to ['rdi'] after 0x40152b: push edi
+Trace back to ['rdi'] after 0x40150a: mov edi,edi
+Trace back to ['rbx'] after 0x40376d: mov edi,ebx
+Trace back to [] after 0x40375f: xor ebx,ebx
+
+
+
+Error: 0x401596	mov eax,dword ptr [ecx]
+	Null pointer dereference at address 0x0
+
+Trace back to ['rcx'] after 0x401596: mov eax,dword ptr [ecx]
+Trace back to ['4294966488'] after 0x401592: mov ecx,dword ptr [esp+0x1c]
+Trace back to ['rdi'] after 0x40152b: push edi
+Trace back to ['rdi'] after 0x40150a: mov edi,edi
+Trace back to ['4294966932'] after 0x403c85: pop edi
+Trace back to ['rdi'] after 0x403bed: push edi
+Trace back to ['rdi'] after 0x403bd0: mov edi,edi
+Trace back to ['rbx'] after 0x40376d: mov edi,ebx
+Trace back to [] after 0x40375f: xor ebx,ebx
+
+
+
+Error: 0x40356e	mov ax,word ptr [edi]
+	Null pointer dereference at address 0x0
+
+Trace back to ['rdi'] after 0x40356e: mov ax,word ptr [edi]
+Trace back to ['rbp'] after 0x403564: mov edi,dword ptr [ebp-0x4]
+Trace back to ['Concat(0, 4294967216 + Extract(31, 0, ul))'] after 0x403e96: pop ebp
+
+
+
+0x4038fb	mov ecx,dword ptr [ebp-0x4]
+	Uninitialized content at address 0xfffffffc
+
+0x4038fb	mov ecx,dword ptr [ebp-0x4]
+	Uninitialized content at address 0xfffffffc
+
+0x4038fb	mov ecx,dword ptr [ebp-0x4]
+	Uninitialized content at address 0xfffffffc
+
+0x4038fb	mov ecx,dword ptr [ebp-0x4]
+	Uninitialized content at address 0xfffffffc
+
+0x4038fb	mov ecx,dword ptr [ebp-0x4]
+	Uninitialized content at address 0xfffffffc
+
+# of reached instructions: 2825
+# of paths: 996
+# of (possibly) negative paths: 8
+# of uninitialized content: 9
+# of unresolved indirects: 3
+Execution time (s): 42.65914869308472

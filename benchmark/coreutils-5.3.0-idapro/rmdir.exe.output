@@ -1,0 +1,12 @@
+0x40532f	or dword ptr [ecx],0x0
+	Uninitialized content at address 0xfffffe70
+
+0x40532f	or dword ptr [ecx],0x0
+	Uninitialized content at address 0xfffffe70
+
+# of reached instructions: 2145
+# of paths: 643
+# of (possibly) negative paths: 0
+# of uninitialized content: 2
+# of unresolved indirects: 4
+Execution time (s): 23.596396923065186
