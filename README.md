@@ -19,7 +19,7 @@ Prerequisites:
     java (>= 11.0.2)
     IDA Pro (>= 7.6)
     
-# WinCheck commandline options
+# WinCheck command-line options
 
     -t, --disasm_type: The type of the disassembler. Currently WinCheck only supports IDA Pro
     -b, --batch: Whether to run WinCheck in batch mode
