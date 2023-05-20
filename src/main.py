@@ -102,11 +102,68 @@ def cmc_batch(exec_dir, disasm_dir, disasm_type, verbose=False):
     exec_files.sort()
     for exec_path in exec_files:
         file_name = utils.get_file_name(exec_path)
-        # if file_name in ['cp.exe', 'cut.exe', 'dir.exe', 'fmt.exe', 'grmdir.exe', 'gsort.exe', 'id.exe', 'ls.exe', 'md5sum.exe', 'mv.exe', 'nl.exe', 'pathchk.exe', 'readlink.exe', 'rmdir.exe', 'sha1sum.exe', 'shred.exe', 'sort.exe', 'split.exe', 'su.exe', 'uname.exe', 'vdir.exe', 'who.exe']:
         print(file_name)
         disasm_path = os.path.join(disasm_dir, file_name + '.' + disasm_type)
         try:
             cmc_main(exec_path, disasm_path, disasm_type, verbose)
+            time.sleep(15)
+        except:
+            close_logger()
+            time.sleep(15)
+            continue
+
+
+def cmc_batch(exec_dir, disasm_dir, disasm_type, verbose=False):
+    exec_files = utils.get_executable_files(exec_dir)
+    exec_files.sort()
+    for exec_path in exec_files:
+        file_name = utils.get_file_name(exec_path)
+        print(file_name)
+        disasm_path = os.path.join(disasm_dir, file_name + '.' + disasm_type)
+        try:
+            cmc_main(exec_path, disasm_path, disasm_type, verbose)
+            time.sleep(15)
+        except:
+            close_logger()
+            time.sleep(15)
+            continue
+
+
+def pp_results(cfg):
+    res = ''
+    num_of_paths, num_of_negatives, num_of_unresolved_indirects, num_of_uninitialized = cfg.cmc_exec_info[0:4]
+    reachable_address_num = cfg.reachable_addresses_num()
+    res += '{0: <8}'.format(reachable_address_num)
+    res += '{0: <8}'.format(num_of_paths)
+    res += '{0: <8}'.format(num_of_negatives)
+    res += '{0: <8}'.format(num_of_uninitialized)
+    res += '{0: <8}'.format(num_of_unresolved_indirects)
+    return res
+
+def cmc_output_table(exec_dir, disasm_dir, disasm_type):
+    exec_files = utils.get_executable_files(exec_dir)
+    exec_files.sort()
+    print('file name\t# of reached instructions\t# of paths\t# of (possibly) negative paths\t# of uninitialized content\t# of unresolved indirects\tExecution time (s)')
+    for exec_path in exec_files:
+        file_name = utils.get_file_name(exec_path)
+        printInfo = '{0: <15}'.format(file_name)
+        disasm_path = os.path.join(disasm_dir, file_name + '.' + disasm_type)
+        try:
+            set_logger(disasm_path, disasm_type, False)
+            global_var.get_binary_info(exec_path)
+            helper.disassemble_to_asm(disasm_path)
+            disasm_factory = Disasm_Factory(disasm_path, exec_path)
+            disasm_asm = disasm_factory.get_disasm()
+            # if disasm_asm.valid_address_no >= 10000:
+                # print(exec_path)
+            start_time = time.time()
+            cfg = construct_cfg(disasm_asm)
+            exec_time = time.time() - start_time
+            write_results(cfg)
+            printInfo += pp_results(cfg)
+            printInfo += '{0: <10}'.format((exec_time))
+            print(printInfo)
+            close_logger()
             time.sleep(15)
         except:
             close_logger()
@@ -129,14 +186,15 @@ def cmc_specified(file_names, exec_dir, disasm_dir, disasm_type, verbose=False):
 
 if __name__=='__main__':
     parser = argparse.ArgumentParser(description='Concolic Model Checker')
-    parser.add_argument('-t', '--disasm_type', default='idapro', type=str, help='Disassembler')
-    parser.add_argument('-b', '--batch', default=False, action='store_true', help='Run cmc_main in batch mode') 
-    parser.add_argument('-l', '--log_dir', default='benchmark/coreutils-idapro', type=str, help='Benchmark library') 
-    parser.add_argument('-e', '--exec_dir', default='benchmark/coreutils-build/src', type=str, help='Elf shared object library') 
-    parser.add_argument('-f', '--file_name', type=str, help='Benchmark file name')
+    parser.add_argument('-t', '--disasm_type', default='idapro', type=str, help='The type of the disassembler')
+    parser.add_argument('-b', '--batch', default=False, action='store_true', help='Run WinCheck in batch mode') 
+    parser.add_argument('-l', '--log_dir', default='benchmark/coreutils-idapro', type=str, help='The absolute path to the directory that contains *.idapro files') 
+    parser.add_argument('-e', '--exec_dir', default='benchmark/coreutils-build/src', type=str, help='The absolute path to the directory that contains the binary files') 
+    parser.add_argument('-f', '--file_name', type=str, help='The name of the binary file')
     parser.add_argument('-v', '--verbose', default=False, action='store_true', help='Whether to print log information on the screen')
-    parser.add_argument('-c', '--bmc_bound', default=25, type=int, help='The default value of the BMC bound')
+    parser.add_argument('-c', '--bmc_bound', default=25, type=int, help='The default value of the bound for the bounded model checking')
     parser.add_argument('-s', '--mem_addr_size', default=32, type=int, help='The default value of the memory address size')
+    parser.add_argument('-o', '--output_table', default=False, action='store_true', help='Whether to print a table that contains all the data as the output')
     args = parser.parse_args()
     utils.MAX_VISIT_COUNT = args.bmc_bound
     utils.MEM_ADDR_SIZE = args.mem_addr_size
@@ -146,6 +204,8 @@ if __name__=='__main__':
     exec_dir = os.path.join(utils.PROJECT_DIR, args.exec_dir)
     if args.batch:
         cmc_batch(exec_dir, log_dir, disasm_type, args.verbose)
+    elif args.output_table:
+        cmc_output_table(exec_dir, log_dir, disasm_type)
     else:
         disasm_path = os.path.join(log_dir, file_name + '.' + disasm_type)
         exec_path = os.path.join(exec_dir, file_name)
