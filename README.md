@@ -29,7 +29,7 @@ Prerequisites:
     -v, --verbose: Whether to print log information on the screen
     -c, --bmc_bound: The default value of the bound for the bounded model checking
     -s, --mem_addr_size: The default value of the memory address size
-    -o, --output_table: Whether to print a table that contains all the data as the output
+    -o, --output_table: Whether to print a table that contains all the data on the screen
     
     
 # IDA Pro results
